@@ -32,5 +32,3 @@ Contact
 
 
 For any inquiries or support, please feel free to reach out to us at manukrishna.s2001@gmail.com. We would be happy to assist you.
-
-Feel free to enhance and customize this README file to reflect the specific details and professionalism of your project.
