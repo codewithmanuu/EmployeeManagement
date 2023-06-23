@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Details</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .edit-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .edit-button:hover {
+            background-color: #45a049;
+        }
+        .button {
+            background-color: #FF0000;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .createdes-button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .createteam-button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .createemp-button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .leave-button {
+
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .button:hover {
+            background-color: #006080;
+        }
+        footer {
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+{% extends 'nav.html' %}
+{% block content%}
+    <form>
+        {% csrf_token %}
+        <h1>Employee Details</h1>
+        <table border="1">
+            <tr>
+                <th>Employee ID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Designation</th>
+                <th>Team</th>
+                <th>Salary</th>
+                <th>Phonenumber</th>
+                <th>Actions</th>
+            </tr>
+            {% for i, j, k, l, m, n, o, p, q in mylist %}
+            <tr>
+                <td>{{ j }}</td>
+                <td>{{ k }}</td>
+                <td>{{ l }}</td>
+                <td>{{ m }}</td>
+                <td>{{ n }}</td>
+                <td>{{ o }}</td>
+                <td>{{ p }}</td>
+                <td>{{ q }}</td>
+                <td>
+                    <a href="/editemp/{{i}}" class="edit-button">Edit</a>
+                    <a href="/empdelete/{{i}}" class="button">Delete</a>
+                    <a href="/leave/{{i}}" class="leave-button">Approve leave</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+    <footer>
+        Employee Management
+    </footer>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>Employee ID</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Designation</th>
+            <th>Team</th>
+            <th>Salary</th>
+            <th>Phonenumber</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="EmployeeID" value="{{prod.EmployeeID}}"></td>
+            <td><input type="text" name="Firstname" value="{{prod.Firstname}}"></td>
+            <td><input type="text" name="Lastname" value="{{prod.Lastname}}"></td>
+            <td><input type="email" name="email" value="{{prod.email}}"></td>
+            <td>
+                <select name="AsignDesignation" id="designation">
+                    {% for designation in des %}
+                        <option value="{{ designation }}" >
+                            {{ designation }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td>
+                <select name="Createteam" id="Createteam">
+                    {% for team in tem %}
+                        <option >
+                            {{ team }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td><input type="number" name="salary" value="{{prod.salary}}"></td>
+            <td><input type="text" name="phonenumber" value="{{prod.phonenumber}}"></td>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
