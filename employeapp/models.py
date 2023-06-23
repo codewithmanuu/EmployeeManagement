@@ -27,7 +27,7 @@ class EmployeeModel(models.Model):
         designation = models.ForeignKey(Designation, on_delete=models.CASCADE)
         team = models.ForeignKey(Team, on_delete=models.CASCADE)
         salary = models.IntegerField()
-        phonenumber = models.IntegerField()
+        phonenumber = models.BigIntegerField()
 
         def save(self, *args, **kwargs):
             if not self.EmployeeID:
